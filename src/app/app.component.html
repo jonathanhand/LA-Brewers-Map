@@ -1,0 +1,41 @@
+<ion-app>
+  <ion-menu side="start">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>
+         Menu
+        </ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-menu-toggle>
+            <ion-item lines="none" routerLink="/tabs/tab1">
+              <ion-icon name="business" slot="start"></ion-icon> <!--TODO change icons-->
+              <ion-label>Home</ion-label>
+            </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+            <ion-item lines="none" routerLink="/tabs/tab2">
+              <ion-icon name="checkbox-outline" slot="start"></ion-icon>
+              <ion-label>Buy LA Beer Week Tickets</ion-label>
+            </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item lines="none" routerLink="/location">
+            <ion-icon name="checkbox-outline" slot="start"></ion-icon>
+            <ion-label>Breweries Map</ion-label>
+          </ion-item>
+      </ion-menu-toggle>
+      <ion-menu-toggle>
+          <ion-item lines="none" routerLink="/#newsletter">
+            <ion-icon name="checkbox-outline" slot="start"></ion-icon>
+            <ion-label>Newsletter</ion-label>
+          </ion-item>
+        <!--TODO: Change icons for side menu--> 
+      </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet main></ion-router-outlet>
+</ion-app>

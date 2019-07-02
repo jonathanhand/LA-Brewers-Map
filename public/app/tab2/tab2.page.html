@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Breweries
+    </ion-title>
+    <ion-buttons slot="primary">
+      <ion-button routerLink="/newoffer"> <!--links to new offer modal(?)-->
+        <ion-icon name="add" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-button href="location" style="display:block;margin:auto;">Map of Breweries</ion-button>
+  <ion-row>
+      <ion-col size-md="8" offset-md="2" text-center>
+        <ion-list>
+          <ion-item *ngFor= "let brewery of loadedBreweries.slice(0)">
+          <!-- [routerLink]="[
+          '/',
+          'placedetail',
+          brewery.id
+          ]"
+          detail> -->
+            <!-- <ion-thumbnail slot="start">
+              <img src = {{place.image}}>
+            </ion-thumbnail> -->
+            <ion-label>
+              <h2>{{brewery.name}}</h2>
+              <p>{{brewery.address}}</p>
+              <p>{{brewery.location}}</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  <!--
+  <ion-grid>
+    <ion-row>
+      <ion-col size-md="8" offset-md="2" text-center>
+        <ion-list>
+          <ion-item-sliding *ngFor = "let offer of offers">
+            <app-offeritem [offer] = "offer"></app-offeritem>
+              <ion-item-options>
+                <ion-item-option color="secondary"
+                [routerLink]="[
+                '/',
+                'editoffer',
+                offer.id
+                ]">
+                  <ion-icon name="create" slot="icon-only"></ion-icon>
+                </ion-item-option>
+              </ion-item-options>
+          </ion-item-sliding>      
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+-->
+</ion-content>
