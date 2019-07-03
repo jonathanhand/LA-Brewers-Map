@@ -7,28 +7,41 @@ import { HttpClient } from '@angular/common/http';
 })
 export class BreweryService {
   private _breweries: Brewery[] = [
-    new Brewery(
-      'b1',
-      '14 Cannons',
-      '31125 Via Colinas, Westlake Village, 91362',
-      'Location: Brewery/Tasting Room'
-    ),
-    new Brewery(
-      'b2',
-      'Hand-Brewed Beer',
-      '9771 Variel Avenue, Los Angeles, 91311',
-      'Location: Brewery/Tasting Room'
-    )];
+    // new Brewery(
+    //   'b1',
+    //   '14 Cannons',
+    //   '31125 Via Colinas, Westlake Village, 91362',
+    //   'Location: Brewery/Tasting Room'
+    // ),
+    // new Brewery(
+    //   'b2',
+    //   'Hand-Brewed Beer',
+    //   '9771 Variel Avenue, Los Angeles, 91311',
+    //   'Location: Brewery/Tasting Room'
+    // )
+    //commented out because using http request to firebase to get data
+  ];
 
-  data: Object;
-  get breweries() {
+  getBreweries() {
     console.log('getting thru http get');
-    this.http.get('https://beachbnb-93d74.firebaseio.com/place.json').subscribe(res => {
-      this.data = res;
-      console.log(this.data);
+    this.http.get('https://la-brewers.firebaseio.com/breweries.json')
+    .subscribe(res => {
+// tslint:disable-next-line: forin
+      for (const j in res) {
+        const newBrewery = new Brewery(
+          j,
+          res[j].name,
+          res[j].address,
+          res[j].location
+        );
+        this._breweries.push(newBrewery);
+      }
     });
-    return [...this._breweries];
+    return this._breweries;
 
+  }
+  get breweries() {
+    return [...this._breweries];
   }
   constructor(private http: HttpClient) { }
   getPlace(id: string) {
