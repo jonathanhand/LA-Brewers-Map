@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class BreweryService {
+// tslint:disable-next-line: variable-name
   private _breweries: Brewery[] = [
     // new Brewery(
     //   'b1',
@@ -19,7 +20,7 @@ export class BreweryService {
     //   '9771 Variel Avenue, Los Angeles, 91311',
     //   'Location: Brewery/Tasting Room'
     // )
-    //commented out because using http request to firebase to get data
+    // commented out because using http request to firebase to get data
   ];
 
   getBreweries() {
@@ -32,7 +33,10 @@ export class BreweryService {
           j,
           res[j].name,
           res[j].address,
-          res[j].location
+          res[j].location,
+          res[j].lat,
+          res[j].lng,
+         
         );
         this._breweries.push(newBrewery);
       }

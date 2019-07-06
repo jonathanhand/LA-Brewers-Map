@@ -4,5 +4,7 @@ export class Brewery {
         public name: string,
         public address: string,
         public location: string,
+        public lat: string,
+        public lng: string
     ) {}
 }
