@@ -12,6 +12,9 @@ export class Tab2Page implements OnInit {
   constructor(private breweryService: BreweryService) {}
   ngOnInit() {
     this.loadedBreweries = this.breweryService.getBreweries();
+    for (const each in this.loadedBreweries) {
+      console.log(each)
+    }
     console.log(this.loadedBreweries);
   }
   // ionViewWillEnter() {
